@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Image, SafeAreaView,Keyboard, Text, TextInput, TouchableOpacity, View ,Icon} from 'react-native';
+import { Image, SafeAreaView,Keyboard, Text, TextInput, TouchableOpacity, View ,Button,Icon} from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 import { firebase } from '../../firebase/config';
 import { FontAwesome , Entypo, MaterialIcons } from '@expo/vector-icons';
-//import  addInfo from '././Api/UserInfoApi';
-
+import * as ImagePicker from 'expo-image-picker';
+0
 
 export default function UserProfileScreen({route,navigation}) {
     const [fullName, setFullName] = useState('')
@@ -125,6 +125,7 @@ export default function UserProfileScreen({route,navigation}) {
                     keyboardType='number-pad'
                 />
                </View>
+               
                <TouchableOpacity
                     style={styles.button}
                     onPress={() => onSubmitPress ()}>

@@ -15,3 +15,4 @@ export { default as RegistrationScreen1 } from './RegistrationScreen1/Registrati
 export { default as HomeStatusScreen } from './HomeStatusScreen/HomeStatusScreen'
 
 export { default as ControlScreen } from './ControlScreen/ControlScreen'
+//export { default as AddImageScreen } from './AddImageScreen/AddImageScreen'

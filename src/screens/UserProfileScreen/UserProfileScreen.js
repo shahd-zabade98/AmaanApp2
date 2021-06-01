@@ -6,9 +6,18 @@ import { firebase } from '../../firebase/config';
 import { FontAwesome , Entypo, MaterialIcons } from '@expo/vector-icons';
 
 export default function UserProfileScreen({route,navigation}) {
-
+  const entityRef = firebase.firestore().collection('entities');
     let Infoo = route.params;
-     
+    entityRef.get()
+    .then((querySnapshot) =>{
+        querySnapshot.forEach()
+    })
+    const onHome = () => {
+      navigation.navigate('HomeStatus')
+  }
+  const onControl = () => {
+    navigation.navigate('Control')
+}
     return(
   
         <View style={styles.container }>
@@ -38,7 +47,17 @@ export default function UserProfileScreen({route,navigation}) {
                   <Text style={styles.text}>   7</Text>
                    </View>
                    
-    
+                   <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => onHome ()}>
+                    <Text style={styles.buttonTitle}>Home</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => onControl ()}>
+                    <Text style={styles.buttonTitle}>Control</Text>
+                </TouchableOpacity>
+                
                  </KeyboardAwareScrollView>
             </View> 
         )

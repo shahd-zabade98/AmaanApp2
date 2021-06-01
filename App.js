@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { LoginScreen, RegistrationScreen1,MainScreen, RegistrationScreen,EditUserProfileScreen, UserProfileScreen } from './src/screens'
+import { LoginScreen, RegistrationScreen1,MainScreen,AddImageScreen, RegistrationScreen,EditUserProfileScreen,ControlScreen, UserProfileScreen ,HomeStatusScreen} from './src/screens'
 import {decode, encode} from 'base-64'
 import { firebase } from './src/firebase/config';
 
@@ -34,8 +34,11 @@ fontWeight:'bold'
          
          
             <Stack.Screen name="Login" component={LoginScreen} />
-            
+            <Stack.Screen name="EditUserProfile" component={EditUserProfileScreen} />
             <Stack.Screen name="UserProfile" component={UserProfileScreen} />
+            <Stack.Screen name="HomeStatus" component={HomeStatusScreen} />
+            <Stack.Screen name="Control" component={ControlScreen} />
+            
     </Stack.Navigator>
        
       

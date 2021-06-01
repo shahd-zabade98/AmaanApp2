@@ -4,7 +4,7 @@ import {EditStack,HomeStack,MyStack, ControlStack} from './MyStack';
 const Drawer = createDrawerNavigator();
 const MyDrawer = () => {
 return (
-<Drawer.Navigator initialRouteName='UserProfile'>
+<Drawer.Navigator >
 <Drawer.Screen name="UserProfile" component={MyStack}/>
 <Drawer.Screen name="EditUserProfile" component={EditStack}/>
 <Drawer.Screen name="HomeStatus" component={HomeStack}/>

@@ -83,5 +83,11 @@ export default StyleSheet.create({
         paddingBottom: 5,
         marginLeft: 20
 
+    },
+    imageContainer:{
+        borderWidth:1,
+        borderColor:"black",
+        width:'50%',
+        height: 150
     }
 })
