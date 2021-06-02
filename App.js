@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { LoginScreen, RegistrationScreen1,MainScreen,AddImageScreen, RegistrationScreen,EditUserProfileScreen,ControlScreen, UserProfileScreen ,HomeStatusScreen} from './src/screens'
+import { LoginScreen, RegistrationScreen1,MainScreen,AddImageScreen,FireProfileScreen ,RegistrationScreen,EditUserProfileScreen,ControlScreen, UserProfileScreen ,HomeStatusScreen} from './src/screens'
 import {decode, encode} from 'base-64'
 import { firebase } from './src/firebase/config';
 
@@ -24,7 +24,7 @@ export default function App() {
       <Stack.Screen name="HomeOwner" title="Home Owner" component={RegistrationScreen} />
           <Stack.Screen name="Firefighter" title="Firefighter" component={RegistrationScreen1} options={{
 headerStyle:{
-backgroundColor:'#ff4500'
+backgroundColor:'#e9967a'
 },
 headerTintColor:'white',
 headerTitleStyle:{
@@ -38,7 +38,15 @@ fontWeight:'bold'
             <Stack.Screen name="UserProfile" component={UserProfileScreen} />
             <Stack.Screen name="HomeStatus" component={HomeStatusScreen} />
             <Stack.Screen name="Control" component={ControlScreen} />
-            
+            <Stack.Screen name="Information" options={{
+headerStyle:{
+backgroundColor:'#e9967a'
+},
+headerTintColor:'white',
+headerTitleStyle:{
+fontWeight:'bold'
+}
+}}component={FireProfileScreen} />
     </Stack.Navigator>
        
       

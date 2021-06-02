@@ -14,6 +14,7 @@ export default function LoginScreen({navigation}) {
     }
 
     const onLoginPress = () => {
+      
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
@@ -28,9 +29,13 @@ export default function LoginScreen({navigation}) {
                         if (!firestoreDocument.exists) {
                             alert("User does not exist anymore.")
                             return;
-                        }
-                        const user = firestoreDocument.data()
-                        navigation.navigate("UserProfile", {user: user})
+                        }else{
+                         if(uid == "5nKrUqUW1ZQQUJmlQllazNFs4X23"){
+                            navigation.navigate("Information", {user: user});
+                         }
+                         else{
+                        navigation.navigate("UserProfile", {user: user});}
+                        }          
                     })
                     .catch(error => {
                         alert(error)
@@ -39,6 +44,7 @@ export default function LoginScreen({navigation}) {
             .catch(error => {
                 alert(error)
             })
+        
     }
 
     return (

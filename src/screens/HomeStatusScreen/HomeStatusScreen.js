@@ -3,13 +3,15 @@ import { Image, SafeAreaView,Keyboard, Text, TextInput, TouchableOpacity, View ,
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 import { firebase } from '../../firebase/config';
-
+import * as MediaLibrary from 'expo-media-library';
 import { FontAwesome , Entypo, MaterialIcons } from '@expo/vector-icons';
-
+import Notifications from 'expo-notifications';
+//import Permissions from 'expo-permissions';
+import AwesomeButton from 'react-native-really-awesome-button';
 export default function HomeStatusScreen() {
   
     const reference = firebase.database().ref('sensors/');
-    const [data, setData] = useState([]);
+    //const [data, setData] = useState([]);
    const onSubmitPress = () => {
         reference 
        .on('value', (snapshot) => {
@@ -39,8 +41,25 @@ export default function HomeStatusScreen() {
           });
       
     }, []);*/
+      
+     /*registerForPushNotifications =async () =>{
+         //check permissions
+         const {status} = await MediaLibrary.getPermissionsAsync();
+         let finalStatus = status;
 
-  
+         //if no existing permission,ask user for it
+         if(status !== 'granted'){
+             const {status} = await MediaLibrary.requestPermissionsAsync();
+             finalStatus=status;
+         }
+           //if no permission
+         if(finalStatus !== 'granted'){return;}
+         
+         //get push notification token
+         let token = await Notifications.getDevicePushTokenAsync();
+         console.log(token);
+
+     }*/
 
 
 
@@ -53,12 +72,10 @@ export default function HomeStatusScreen() {
         keyboardShouldPersistTaps="always">
 
                
-                    <View>
+                    <View style={styles.button}>
                
-                 <TouchableOpacity style={styles.button}
-                 onPress= {() => onSubmitPress()}>
-                     <Text style={styles.buttonTitle}>Status</Text>
-                 </TouchableOpacity>
+                    <AwesomeButton progress textColor="#fffff0" width={120} type="primaryFlat" backgroundColor="#cd5c5c" backgroundActive="rgba(0,0,0,0)" borderRadius={30}  onPress={(next) => { onSubmitPress() 
+                    next(); }}> Status </AwesomeButton>
                  
                 </View>
                 <View style={styles.action}>
